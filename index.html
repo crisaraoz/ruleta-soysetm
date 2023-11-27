@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/output.css">
+    <title>Roulete</title>
+</head>
+
+<body class="bg-slate-950 text-slate-200 p-5 min-h-screen flex flex-col justify-center items-center">
+    <h1 class="text-5xl font-bold mb-4">Roleta Online</h1>
+    <main class="mx-auto flex flex-wrap items-center gap-5">
+        <div id="roulete-c" class="mx-auto xl:w-auto w-11/12 relative">
+            <canvas id="roulete" width="" height="" class="mx-auto transition-transform duration-[10000ms]"></canvas>
+
+            <div id="spin" class="bg-slate-200 text-slate-900 text-2xl p-3 aspect-square rounded-full flex items-center absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 cursor-pointer">
+                Girar
+                <span class="absolute -right-1 block w-5 h-5 border-[12px] border-b-0 border-l-0 border-slate-200 rotate-45"></span>
+            </div>
+
+            <div id="warning" class="text-3xl xl:w-[650px] xl:h-[650px] w-full h-full text-center bg-slate-950 absolute top-0 left-0 hidden justify-center items-center">Nenhum dado inserido!</div>
+        </div>
+
+        <textarea id="textarea" placeholder="Insira em cada linha um resultado" value="" class="xl:min-w-[550px] min-w-full h-32 resize-none rounded-lg p-2 text-slate-900 outline-none focus-visible:p-[6px] focus-visible:border-2 focus-visible:border-solid focus-visible:border-[#86b7fe] focus-visible:shadow-[0_0_0_.25rem_rgba(13,110,253,.25)] transition-shadow text-lg">Resultado 1&NewLine;Resultado 2&NewLine;Resultado 3&NewLine;Resultado 4</textarea>
+    </main>
+
+    <script src="./js/canvas.js"></script>
+    <script src="./js/textarea.js"></script>
+    <script src="./js/spin.js"></script>
+</body>
+
+</html>
