@@ -11,7 +11,7 @@
 <body class="bg-slate-950 text-slate-200 p-5 min-h-screen flex flex-col justify-center items-center">
     <h1 class="text-5xl font-bold mb-4">Roleta Online</h1>
     <main class="mx-auto flex flex-wrap items-center gap-5">
-        <div id="roulete-c" class="mx-auto xl:w-auto w-11/12 relative">
+        <div id="roulete-c" class="mx-auto xl:w-auto w-11/12 relative overflow-hidden">
             <canvas id="roulete" width="" height="" class="mx-auto transition-transform duration-[10000ms]"></canvas>
 
             <div id="spin" class="bg-slate-200 text-slate-900 text-2xl p-3 aspect-square rounded-full flex items-center absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 cursor-pointer">
@@ -22,7 +22,10 @@
             <div id="warning" class="text-3xl xl:w-[650px] xl:h-[650px] w-full h-full text-center bg-slate-950 absolute top-0 left-0 hidden justify-center items-center">Nenhum dado inserido!</div>
         </div>
 
-        <textarea id="textarea" placeholder="Insira em cada linha um resultado" value="" class="xl:min-w-[550px] min-w-full h-32 resize-none rounded-lg p-2 text-slate-900 outline-none focus-visible:p-[6px] focus-visible:border-2 focus-visible:border-solid focus-visible:border-[#86b7fe] focus-visible:shadow-[0_0_0_.25rem_rgba(13,110,253,.25)] transition-shadow text-lg">Resultado 1&NewLine;Resultado 2&NewLine;Resultado 3&NewLine;Resultado 4</textarea>
+        <div class="relative flex items-center justify-center xl:min-w-[550px] min-w-full">
+            <textarea id="textarea" placeholder="Insira em cada linha um resultado" value="" class="w-full h-32 resize-none rounded-lg p-2 text-slate-900 outline-none focus-visible:p-[6px] focus-visible:border-2 focus-visible:border-solid focus-visible:border-[#86b7fe] focus-visible:shadow-[0_0_0_.25rem_rgba(13,110,253,.25)] transition text-lg disabled:cursor-not-allowed disabled:opacity-80 peer">Resultado 1&NewLine;Resultado 2&NewLine;Resultado 3&NewLine;Resultado 4</textarea>
+            <span class="hidden absolute w-10 h-10 rounded-full border-4 border-solid border-blue-500 border-y-slate-300 border-l-slate-300 animate-spin peer-disabled:block"></span>
+        </div>
     </main>
 
     <script src="./js/canvas.js"></script>

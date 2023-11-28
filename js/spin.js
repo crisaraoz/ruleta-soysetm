@@ -1,7 +1,7 @@
 const spin = document.querySelector('#spin')
 let turns = 16
 
-spin.addEventListener('click', () => {
+const spinRoulete = () => {
     let deg = Number(Math.random().toFixed(2))
     
     const results = textarea.value.split('\n').filter(item => item).reverse()
@@ -26,7 +26,17 @@ spin.addEventListener('click', () => {
     console.log(deg, regions, winner, results[winner])
 
     canvas.style = `transform: rotate(${deg + turns}turn)`
+
+    spin.removeEventListener('click', spinRoulete)
+    textarea.setAttribute('disabled', 'true')
+
+    canvas.addEventListener('transitionend', () => {
+        spin.addEventListener('click', spinRoulete)
+        textarea.removeAttribute('disabled')
+    })
     
     // console.log(deg + turns, random)
     turns += 16
-})
+}
+
+spin.addEventListener('click', spinRoulete)
