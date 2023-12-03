@@ -4,7 +4,7 @@ const textarea = document.querySelector('#textarea')
 const container = document.querySelector('#roulete-c')
 const warning = document.querySelector('#warning')
 
-const colors = ['#ff6347', '#ffa500', '#008080', '#ffd700']
+const colors = ['#E11D48', '#0284C7']
 
 function resizeCanvas() {
     const containerWidth = container.clientWidth
@@ -37,7 +37,7 @@ function draw() {
     }
 
     results.forEach((result, i) => {
-        ctx.fillStyle = colors[i % 4]
+        ctx.fillStyle = colors[i % 2]
         ctx.beginPath()
         ctx.moveTo(canvas.width / 2, canvas.height / 2)
         ctx.arc(canvas.width / 2, canvas.height / 2, canvas.height / 2, start, start + deg)
