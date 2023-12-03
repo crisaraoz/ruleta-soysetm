@@ -41,6 +41,7 @@ const spinRoulete = () => {
             modal.classList.replace('hidden', 'flex')
             content.classList.add('animate-show')
             winnerRes.textContent = results[winner]
+            showConffeti()
         }, 300)
     })
     
