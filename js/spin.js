@@ -12,17 +12,20 @@ const spinRoulete = () => {
     let regions = results.map(() => '')
     
     const portion = (100 / regions.length) / 100
-    regions = regions.map((item, i) => portion * (i))
-    
+    regions = regions.map((item, i) => Number((portion * i).toFixed(2)))
+    regions.push(1)
+
     // deg = 1
     let winner = 0
     regions.forEach((item, i, arr) => {
         // console.log(deg > item)
+        deg == item ? deg += 0.01 : deg = deg
+
         if (deg < arr[i + 1] && deg >= item) {
             winner = i
         } else if (i == arr.length - 1) {
             if (deg >= item) {
-                winner = i
+                winner = 0
             }
         }
     })

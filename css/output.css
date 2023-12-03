@@ -657,10 +657,6 @@ video {
   height: 100%;
 }
 
-.h-screen {
-  height: 100vh;
-}
-
 .min-h-screen {
   min-height: 100vh;
 }
@@ -954,8 +950,12 @@ video {
   transition-duration: 10000ms;
 }
 
-.duration-\[1ms\] {
-  transition-duration: 1ms;
+.duration-\[2000ms\] {
+  transition-duration: 2000ms;
+}
+
+.duration-\[500ms\] {
+  transition-duration: 500ms;
 }
 
 .ease-out {
