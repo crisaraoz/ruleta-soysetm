@@ -1,39 +1,99 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/output.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Ruleta SoySetm</title>
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/output.css">
-    <title>Roulete</title>
-</head>
-
-<body class="bg-gradient-to-r from-gray-950 from-40% to-sky-950 text-slate-200 p-5 min-h-screen flex flex-col justify-center items-center">
-    <h1 class="text-5xl font-bold mb-4">Roleta Online</h1>
+  <body
+    class="bg-gradient-to-r from-gray-950 from-40% to-sky-950 text-slate-200 p-5 min-h-screen flex flex-col justify-center items-center"
+  >
+    <h1
+      class="text-3xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-8 ml-4 lg:ml-12 font-montserrat"
+    >
+      La Ruleta de <span class="text-movistar-green">M</span>ovincho
+    </h1>
     <main class="mx-auto flex flex-wrap items-center gap-5">
-        <div id="roulete-c" class="mx-auto xl:w-auto w-11/12 relative rounded-full overflow-hidden">
-            <canvas id="roulete" width="" height="" class="mx-auto transition-transform duration-[10000ms]"></canvas>
+      <div
+        id="roulete-c"
+        class="mx-auto xl:w-auto w-11/12 relative rounded-full overflow-hidden"
+      >
+        <canvas
+          id="roulete"
+          width=""
+          height=""
+          class="mx-auto transition-transform duration-[10000ms]"
+        ></canvas>
 
-            <div id="spin" class="bg-slate-200 text-slate-900 text-2xl p-3 aspect-square rounded-full flex items-center absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 cursor-pointer">
-                Girar
-                <span class="absolute -right-1 block w-5 h-5 border-[12px] border-b-0 border-l-0 border-slate-200 rotate-45"></span>
-            </div>
-
-            <div id="warning" class="text-3xl xl:w-[650px] xl:h-[650px] w-full h-full text-center bg-rose-600 absolute top-0 left-0 hidden justify-center items-center">Nenhum dado inserido!</div>
+        <div
+          id="spin"
+          class="bg-slate-200 text-slate-900 text-2xl p-3 aspect-square rounded-full flex items-center absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 cursor-pointer"
+        >
+          Girar
+          <span
+            class="absolute -right-1 block w-5 h-5 border-[12px] border-b-0 border-l-0 border-slate-200 rotate-45"
+          ></span>
         </div>
 
-        <div class="relative flex items-center justify-center xl:min-w-[550px] min-w-full">
-            <textarea id="textarea" placeholder="Insira em cada linha um resultado" value="" class="w-full h-32 resize-none rounded-lg p-2 text-slate-900 outline-none focus-visible:p-[6px] focus-visible:border-2 focus-visible:border-solid focus-visible:border-[#86b7fe] focus-visible:shadow-[0_0_0_.25rem_rgba(13,110,253,.25)] transition text-lg disabled:cursor-not-allowed disabled:opacity-80 peer">Resultado 1&NewLine;Resultado 2&NewLine;Resultado 3&NewLine;Resultado 4</textarea>
-            <span class="hidden absolute w-10 h-10 rounded-full border-4 border-solid border-sky-600 border-y-slate-300 border-l-slate-300 animate-spin peer-disabled:block"></span>
+        <div
+          id="warning"
+          class="text-3xl xl:w-[650px] xl:h-[650px] w-full h-full text-center bg-rose-600 absolute top-0 left-0 hidden justify-center items-center"
+        >
+          ¡No se han introducido datos!
         </div>
+      </div>
 
-        <div id="modal" class="bg-black bg-opacity-75 fixed top-0 right-0 p-5 w-full h-full hidden justify-center items-center">
-            <div id="modal-content" class="w-[min(625px,85%)] bg-white p-5 text-slate-800 text-center rounded-lg">
-                <h2 class="text-lg">O Vencedor Foi...</h2>
-                <p id="winner" class="font-bold text-3xl">winner</p>
-                <div id="close" class="bg-rose-600 text-white text-lg font-bold font-mono w-7 h-7 rounded-full absolute -top-1 -left-3 flex justify-center items-center cursor-pointer">X</div>
-            </div>
+      <div
+        class="relative flex-direction-column items-center justify-center xl:min-w-[550px] min-w-full"
+      >
+      <button
+      id="toggle-button"
+      class="bg-blue-500 text-white px-4 py-2 rounded-lg mb-4"
+    >
+      Mostrar/Ocultar casos
+    </button>
+    <textarea
+    id="textarea"
+    placeholder="Insertar una Experiencia en cada fila"
+    class="w-full h-textarea resize-none rounded-lg p-2 text-slate-900 outline-none focus-visible:p-[6px] focus-visible:border-2 focus-visible:border-solid focus-visible:border-[#86b7fe] focus-visible:shadow-[0_0_0_.25rem_rgba(13,110,253,.25)] transition text-lg disabled:cursor-not-allowed disabled:opacity-80 peer hidden"
+>
+Caso 1&NewLine;Caso 2&NewLine;Caso 3&NewLine;Caso 4&NewLine;Caso 5&NewLine;Caso 6&NewLine;Caso 7&NewLine;Caso 8</textarea
+        >
+        <span
+          class="hidden absolute w-10 h-10 rounded-full border-4 border-solid border-sky-600 border-y-slate-300 border-l-slate-300 animate-spin peer-disabled:block"
+        ></span>
+        <div class="w-full flex justify-center mt-4">
+          <img
+            src="./assets/movincho.svg"
+            alt="movincho"
+            class="w-full max-w-xs md:max-w-md rounded-lg shadow-lg"
+          />
         </div>
+      </div>
+      <div
+        id="modal"
+        class="bg-black bg-opacity-75 fixed top-0 right-0 p-5 w-full h-full hidden justify-center items-center"
+      >
+        <div
+          id="modal-content"
+          class="w-[min(625px,85%)] bg-white p-5 text-slate-800 text-center rounded-lg"
+        >
+          <h2 class="text-lg">Tu experiencia SoySetm es...</h2>
+          <p id="winner" class="font-bold text-3xl">winner</p>
+          <div
+            id="close"
+            class="bg-rose-600 text-white text-lg font-bold font-mono w-7 h-7 rounded-full absolute -top-1 -left-3 flex justify-center items-center cursor-pointer"
+          >
+            X
+          </div>
+        </div>
+      </div>
     </main>
 
     <script src="./js/canvas.js"></script>
@@ -41,6 +101,5 @@
     <script src="./js/spin.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script src="./js/conffeti.js"></script>
-</body>
-
+  </body>
 </html>
