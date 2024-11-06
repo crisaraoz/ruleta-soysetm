@@ -1,3 +1,4 @@
+// canvas.js
 const canvas = document.getElementById('roulete')
 const ctx = canvas.getContext('2d')
 const textarea = document.querySelector('#textarea')
@@ -9,7 +10,7 @@ const colors = ['#E11D48', '#0284C7']
 function resizeCanvas() {
     const containerWidth = container.clientWidth
     const body = document.querySelector('body')
-    // console.log(containerWidth);
+    // Ajusta el tamaño del canvas dependiendo del tamaño de la pantalla
     if (body.clientWidth < 749) {
         canvas.width = containerWidth
         canvas.height = canvas.width
@@ -19,7 +20,6 @@ function resizeCanvas() {
     }
 
     draw()
-    
 }
 
 function draw() {
@@ -35,7 +35,6 @@ function draw() {
     } else {
         warning.classList.add('hidden')
     }
-
     results.forEach((result, i) => {
         ctx.fillStyle = colors[i % 2]
         ctx.beginPath()
